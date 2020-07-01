@@ -21,30 +21,40 @@ public class BootstrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        System.out.println("Started in Bootstrap");
+
+        Publisher publisher = new Publisher("PubName",
+                new Address("Address Line 1", "Kyiv", "Ukraine", "123321"));
+
+        publisherRepository.save(publisher);
+
         Author eric = new Author("Eric", "Evans");
         Book ddd = new Book("Domain Driven Design", "123");
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
 
+        publisher.getBooks().add(ddd);
+        ddd.setPublisher(publisher);
+
         authorRepository.save(eric);
         bookRepository.save(ddd);
+        publisherRepository.save(publisher);
 
         Author rod = new Author("Rod", "Johnson");
         Book noEJB = new Book("J2EE Development without EJB", "456");
         rod.getBooks().add(noEJB);
         noEJB.getAuthors().add(rod);
 
+        publisher.getBooks().add(noEJB);
+        noEJB.setPublisher(publisher);
+
         authorRepository.save(rod);
         bookRepository.save(noEJB);
-
-        System.out.println("Started in Bootstrap");
-        System.out.println("Number of books:" + bookRepository.count());
-
-        Publisher publisher = new Publisher("PubName",
-                new Address("Address Line 1", "Kyiv", "Ukraine", "123321"));
         publisherRepository.save(publisher);
 
-        publisherRepository.findAll().forEach(System.out::println);
+        System.out.println("Number of books:" + bookRepository.count());
 
+        publisherRepository.findAll().forEach(System.out::println);
     }
 }
