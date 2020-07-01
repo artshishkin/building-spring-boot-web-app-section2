@@ -3,6 +3,7 @@ package com.artarkatesoft.buildingspringbootwebappsection2.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,7 +11,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class Book {
 
@@ -21,11 +21,16 @@ public class Book {
     private String title;
     private String isbn;
 
+    public Book(String title, String isbn) {
+        this.title = title;
+        this.isbn = isbn;
+    }
+
     @ManyToMany
-    @JoinTable(name="author_book",
-            joinColumns = @JoinColumn(name="book_id"),
-    inverseJoinColumns = @JoinColumn(name="author_id"))
-    private Set<Author> authors;
+    @JoinTable(name = "author_book",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
+    private Set<Author> authors = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

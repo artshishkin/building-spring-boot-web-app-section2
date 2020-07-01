@@ -17,3 +17,6 @@ Spring Framework Guru Tutorial - Spring Boot 5
 - only by ID
 
 ##16 Spring Data Repositories
+
+##17 Initializing Data with Spring
+- with 2.3.1.RELEASE version there were errors, with 2.2.2.RELEASE - ok
