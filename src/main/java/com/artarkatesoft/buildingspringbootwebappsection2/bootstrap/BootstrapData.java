@@ -1,9 +1,12 @@
 package com.artarkatesoft.buildingspringbootwebappsection2.bootstrap;
 
+import com.artarkatesoft.buildingspringbootwebappsection2.domain.Address;
 import com.artarkatesoft.buildingspringbootwebappsection2.domain.Author;
 import com.artarkatesoft.buildingspringbootwebappsection2.domain.Book;
+import com.artarkatesoft.buildingspringbootwebappsection2.domain.Publisher;
 import com.artarkatesoft.buildingspringbootwebappsection2.repositories.AuthorRepository;
 import com.artarkatesoft.buildingspringbootwebappsection2.repositories.BookRepository;
+import com.artarkatesoft.buildingspringbootwebappsection2.repositories.PublisherRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,6 +17,7 @@ public class BootstrapData implements CommandLineRunner {
 
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
+    private final PublisherRepository publisherRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -35,6 +39,12 @@ public class BootstrapData implements CommandLineRunner {
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of books:" + bookRepository.count());
+
+        Publisher publisher = new Publisher("PubName",
+                new Address("Address Line 1", "Kyiv", "Ukraine", "123321"));
+        publisherRepository.save(publisher);
+
+        publisherRepository.findAll().forEach(System.out::println);
 
     }
 }

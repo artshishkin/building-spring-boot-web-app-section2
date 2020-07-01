@@ -19,5 +19,10 @@ Spring Framework Guru Tutorial - Spring Boot 5
 ##16 Spring Data Repositories
 
 ##17 Initializing Data with Spring
+
 - with 2.3.1.RELEASE version there were errors, with 2.2.2.RELEASE - ok
 - @EnableJpaRepositories and 2.3.1.RELEASE works
+
+##18 Assignment 2 - Add Publisher Entity
+
+- I used Embedded and Embeddable for Address
