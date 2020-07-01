@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<h1>Books</h1>
+<!--<a href="addPerson">Add Person</a>-->
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Publisher</th>
+            <th>toString()</th>
+            <th>just book</th>
+        </tr>
+        <!--/*@thymesVar id="books" type="java.util.List<com.artarkatesoft.buildingspringbootwebappsection2.domain.Book>"*/-->
+        <tr th:each ="book : ${books}">
+            <td th:utext="${book.id}">...</td>
+            <td th:utext="${book.title}">...</td>
+            <td th:utext="${book.publisher.name}">...</td>
+            <td th:utext="${book.publisher}">...</td>
+            <td th:utext="${book.toString()}">...</td>
+            <td th:utext="${book}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
