@@ -11,3 +11,9 @@ Spring Framework Guru Tutorial - Spring Boot 5
 ##14 JPA Entities
 
 - https://start.jhipster.tech/jdl-studio/
+
+##15 Equality in Hibernate
+
+- only by ID
+
+##16 Spring Data Repositories
