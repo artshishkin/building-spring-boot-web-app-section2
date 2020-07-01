@@ -6,4 +6,8 @@ Spring Framework Guru Tutorial - Spring Boot 5
 
 - `git remote add sfgRepo
     https://github.com/springframeworkguru/spring5webapp.git`
-- `git fetch`
+- `git fetch sfgRepo`
+
+##14 JPA Entities
+
+- https://start.jhipster.tech/jdl-studio/
